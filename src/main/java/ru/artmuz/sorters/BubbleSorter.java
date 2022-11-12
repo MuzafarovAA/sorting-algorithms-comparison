@@ -12,14 +12,12 @@ public class BubbleSorter implements ISorter {
     @Override
     public CommonResult doSort(int[] originalArray) {
         int[] array = Arrays.copyOf(originalArray, originalArray.length);
-        int cycles = 0;
         int count = 0;
         int exchange = 0;
 
         int temp;
         boolean isSwapped;
         do {
-            cycles++;
             isSwapped = false;
             for (int i = 0; i < array.length - 1; i++) {
                 count++;
@@ -34,7 +32,7 @@ public class BubbleSorter implements ISorter {
 
         } while (isSwapped);
 
-        logger.info(String.format("BubbleSorter. Cycles: %d, Comparison: %d, Exchanges: %d", cycles, count, exchange));
-        return new CommonResult(array, cycles, count, exchange);
+        logger.info(String.format("%s. Comparison: %d, Exchanges: %d", BubbleSorter.class.getSimpleName(), count, exchange));
+        return new CommonResult(array, count, exchange);
     }
 }

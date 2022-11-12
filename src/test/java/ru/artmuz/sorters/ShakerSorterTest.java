@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class ShakerSorterTest {
     ISorter sorter = new ShakerSorter();

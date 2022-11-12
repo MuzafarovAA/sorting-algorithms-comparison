@@ -12,11 +12,6 @@ public final class CommonResult {
     private final int[] sortedArray;
 
     /**
-     * Количество циклов сортировки
-     */
-    private final int cycleCount;
-
-    /**
      * Количество операций сортировки
      */
     private final int sortCount;
@@ -26,19 +21,14 @@ public final class CommonResult {
      */
     private final int exchangesCount;
 
-    public CommonResult(int[] sortedArray, int cycleCount, int sortCount, int exchangesCount) {
+    public CommonResult(int[] sortedArray, int sortCount, int exchangesCount) {
         this.sortedArray = sortedArray;
-        this.cycleCount = cycleCount;
         this.sortCount = sortCount;
         this.exchangesCount = exchangesCount;
     }
 
     public int[] getSortedArray() {
         return sortedArray;
-    }
-
-    public int getCycleCount() {
-        return cycleCount;
     }
 
     public int getSortCount() {
