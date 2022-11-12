@@ -10,8 +10,8 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BubbleSorterTest {
-    ISorter sorter = new BubbleSorter();
+public class ShakerSorterTest {
+    ISorter sorter = new ShakerSorter();
 
     /**
      * Кейс: условно-произвольный случай
@@ -32,11 +32,7 @@ public class BubbleSorterTest {
         int[] array = {5, 4, 3, 2, 1};
         int[] resultArray = {1, 2, 3, 4, 5};
         CommonResult commonResult = sorter.doSort(array);
-        assertAll(
-                () -> assertArrayEquals(resultArray, commonResult.getSortedArray()),
-                () -> assertEquals((array.length - 1) * array.length, commonResult.getSortCount()),
-                () -> assertEquals((array.length - 1) * array.length / 2, commonResult.getExchangesCount())
-        );
+        assertArrayEquals(resultArray, commonResult.getSortedArray());
     }
 
     /**
@@ -46,11 +42,7 @@ public class BubbleSorterTest {
     public void testSorterBestScenario() {
         int[] array = {1, 2, 3, 4, 5};
         CommonResult commonResult = sorter.doSort(array);
-        assertAll(
-                () -> assertArrayEquals(array, commonResult.getSortedArray()),
-                () -> assertEquals(array.length - 1, commonResult.getSortCount()),
-                () -> assertEquals(0, commonResult.getExchangesCount())
-        );
+        assertArrayEquals(array, commonResult.getSortedArray());
     }
 
     /**

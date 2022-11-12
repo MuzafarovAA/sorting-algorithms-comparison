@@ -4,6 +4,7 @@ import ru.artmuz.entities.CommonResult;
 import ru.artmuz.interfaces.ISorter;
 import ru.artmuz.interfaces.ISorterFactory;
 import ru.artmuz.sorters.BubbleSorter;
+import ru.artmuz.sorters.ShakerSorter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ public class SorterFactory implements ISorterFactory {
 
     public SorterFactory() {
         sorters.add(new BubbleSorter());
+        sorters.add(new ShakerSorter());
     }
 
     @Override

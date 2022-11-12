@@ -27,8 +27,8 @@ public final class CommonResult {
     private final int exchangesCount;
 
     public CommonResult(int[] sortedArray, int cycleCount, int sortCount, int exchangesCount) {
-        this.cycleCount = cycleCount;
         this.sortedArray = sortedArray;
+        this.cycleCount = cycleCount;
         this.sortCount = sortCount;
         this.exchangesCount = exchangesCount;
     }
