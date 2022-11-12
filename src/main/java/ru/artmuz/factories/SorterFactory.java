@@ -7,10 +7,7 @@ import ru.artmuz.sorters.BubbleSorter;
 import ru.artmuz.sorters.QuickSorter;
 import ru.artmuz.sorters.ShakerSorter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class SorterFactory implements ISorterFactory {
 
@@ -23,12 +20,12 @@ public class SorterFactory implements ISorterFactory {
     }
 
     @Override
-    public Map<ISorter, Integer> doSort(int[] array) {
-        Map<ISorter, Integer> hashMap = new HashMap<>();
+    public Map<ISorter, Long> doSort(int[] array) {
+        Map<ISorter, Long> hashMap = new HashMap<>();
 
         for (ISorter sorter : sorters) {
-            CommonResult result = sorter.doSort(array);
-            hashMap.put(sorter, result.getSortCount());
+            CommonResult result = sorter.doSort(Arrays.copyOf(array, array.length));
+            hashMap.put(sorter, result.getCount());
         }
 
         return hashMap;
