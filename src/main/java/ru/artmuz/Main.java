@@ -11,6 +11,7 @@ import java.util.stream.IntStream;
 public class Main {
 
     public static final int RANDOM_ARRAY_INT_BOUND = 100;
+    public static final int RANDOM_ARRAY_MIN_SIZE = 1;
     public static final int RANDOM_ARRAY_MAX_SIZE = 25;
     public static final int RANDOM_ARRAYS_COUNT = 25;
     private static final Logger logger = LogManager.getLogger(Main.class);
@@ -42,7 +43,7 @@ public class Main {
         for (int i = 0; i < RANDOM_ARRAYS_COUNT; i++) {
             int[] randomIntsArray = IntStream
                     .generate(() -> new Random().nextInt(-RANDOM_ARRAY_INT_BOUND, RANDOM_ARRAY_INT_BOUND))
-                    .limit(new Random().nextInt(1, RANDOM_ARRAY_MAX_SIZE))
+                    .limit(new Random().nextInt(RANDOM_ARRAY_MIN_SIZE, RANDOM_ARRAY_MAX_SIZE))
                     .toArray();
             arrays.add(randomIntsArray);
         }
