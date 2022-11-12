@@ -3,19 +3,16 @@ package ru.artmuz.sorters;
 import ru.artmuz.entities.CommonResult;
 import ru.artmuz.interfaces.ISorter;
 
-import java.util.Arrays;
-
 /**
  * Шейкерная сортировка
  */
 public class ShakerSorter implements ISorter {
     @Override
-    public CommonResult doSort(int[] originalArray) {
+    public CommonResult doSort(int[] array) {
         long startTime = System.currentTimeMillis();
 
-        int[] array = Arrays.copyOf(originalArray, originalArray.length);
-        int count = 0;
-        int exchange = 0;
+        long count = 0;
+        long exchange = 0;
 
         int temp;
         int left = 0;

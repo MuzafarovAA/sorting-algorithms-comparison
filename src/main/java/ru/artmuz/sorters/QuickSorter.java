@@ -3,21 +3,17 @@ package ru.artmuz.sorters;
 import ru.artmuz.entities.CommonResult;
 import ru.artmuz.interfaces.ISorter;
 
-import java.util.Arrays;
-
 /**
  * Быстрая сортировка (Quick Sort)
  */
 public class QuickSorter implements ISorter {
 
-    int count;
-    int exchange;
+    long count;
+    long exchange;
 
     @Override
-    public CommonResult doSort(int[] originalArray) {
+    public CommonResult doSort(int[] array) {
         long startTime = System.currentTimeMillis();
-
-        int[] array = Arrays.copyOf(originalArray, originalArray.length);
 
         count = 0;
         exchange = 0;

@@ -34,8 +34,8 @@ public class BubbleSorterTest {
         CommonResult commonResult = sorter.doSort(array);
         assertAll(
                 () -> assertArrayEquals(resultArray, commonResult.getSortedArray()),
-                () -> assertEquals((array.length - 1) * array.length, commonResult.getSortCount()),
-                () -> assertEquals((array.length - 1) * array.length / 2, commonResult.getExchangesCount())
+                () -> assertEquals((array.length - 1) * array.length, commonResult.getCount()),
+                () -> assertEquals((array.length - 1) * array.length / 2, commonResult.getExchange())
         );
     }
 
@@ -48,8 +48,8 @@ public class BubbleSorterTest {
         CommonResult commonResult = sorter.doSort(array);
         assertAll(
                 () -> assertArrayEquals(array, commonResult.getSortedArray()),
-                () -> assertEquals(array.length - 1, commonResult.getSortCount()),
-                () -> assertEquals(0, commonResult.getExchangesCount())
+                () -> assertEquals(array.length - 1, commonResult.getCount()),
+                () -> assertEquals(0, commonResult.getExchange())
         );
     }
 

@@ -14,29 +14,29 @@ public final class CommonResult {
     /**
      * Количество операций сортировки
      */
-    private final int sortCount;
+    private final long count;
 
     /**
      * Количество операций обмена
      */
-    private final int exchangesCount;
+    private final long exchange;
 
-    public CommonResult(int[] sortedArray, int sortCount, int exchangesCount) {
+    public CommonResult(int[] sortedArray, long count, long exchange) {
         this.sortedArray = sortedArray;
-        this.sortCount = sortCount;
-        this.exchangesCount = exchangesCount;
+        this.count = count;
+        this.exchange = exchange;
     }
 
     public int[] getSortedArray() {
         return sortedArray;
     }
 
-    public int getSortCount() {
-        return sortCount;
+    public long getCount() {
+        return count;
     }
 
-    public int getExchangesCount() {
-        return exchangesCount;
+    public long getExchange() {
+        return exchange;
     }
 
     @Override

@@ -10,6 +10,6 @@ public interface ISorterFactory {
      * @param array Массив
      * @return Хеш-таблица: ключ - тип сортировки; значение - количество операция
      */
-    Map<ISorter, Integer> doSort(int[] array);
+    Map<ISorter, Long> doSort(int[] array);
 
 }
