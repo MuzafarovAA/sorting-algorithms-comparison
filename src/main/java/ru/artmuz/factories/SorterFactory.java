@@ -24,7 +24,7 @@ public class SorterFactory implements ISorterFactory {
 
         for (ISorter sorter : sorters) {
             CommonResult result = sorter.doSort(array);
-            hashMap.put(sorter, result.getCount());
+            hashMap.put(sorter, result.getSortCount());
         }
 
         return hashMap;
