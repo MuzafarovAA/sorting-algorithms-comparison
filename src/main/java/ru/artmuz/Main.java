@@ -27,10 +27,11 @@ public class Main {
 
         logger.info("Entering sorting machine");
         for (int[] array : arrays) {
-            logger.info("Sorting array of: " + Arrays.toString(array));
-            Map<ISorter, Integer> map = sorterFactory.doSort(array);
+            logger.info(String.format("Sorting array of %d elements: %s", array.length,
+                    array.length > 1000 ? String.format("viewing only first 1000 elements: %s", Arrays.toString(Arrays.copyOf(array, 1000))) : Arrays.toString(array)));
+            Map<ISorter, Long> map = sorterFactory.doSort(array);
 
-            Map.Entry<ISorter, Integer> min = Collections.min(map.entrySet(), Map.Entry.comparingByValue());
+            Map.Entry<ISorter, Long> min = Collections.min(map.entrySet(), Map.Entry.comparingByValue());
             logger.info("The best sorter for array is: " + min.getKey().getClass().getSimpleName());
         }
         logger.info("Exiting sorting machine");
