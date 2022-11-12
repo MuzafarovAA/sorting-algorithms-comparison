@@ -41,12 +41,20 @@ public class Main {
     private static List<int[]> initRandomArrays() {
         List<int[]> arrays = new ArrayList<>(RANDOM_ARRAYS_COUNT);
         for (int i = 0; i < RANDOM_ARRAYS_COUNT; i++) {
-            int[] randomIntsArray = IntStream
-                    .generate(() -> new Random().nextInt(-RANDOM_ARRAY_INT_BOUND, RANDOM_ARRAY_INT_BOUND))
-                    .limit(new Random().nextInt(RANDOM_ARRAY_MIN_SIZE, RANDOM_ARRAY_MAX_SIZE))
+            int[] randomIntsArray = IntStream.generate(
+                            () -> new Random().nextInt(-RANDOM_ARRAY_INT_BOUND, RANDOM_ARRAY_INT_BOUND)
+                    ).limit(new Random().nextInt(RANDOM_ARRAY_MIN_SIZE, RANDOM_ARRAY_MAX_SIZE))
                     .toArray();
             arrays.add(randomIntsArray);
         }
         return arrays;
+    }
+
+    private static List<int[]> initRandomArray(int size, int bound) {
+        int[] randomIntsArray = IntStream.generate(
+                        () -> new Random().nextInt(-bound, bound))
+                .limit(size)
+                .toArray();
+        return Collections.singletonList(randomIntsArray);
     }
 }

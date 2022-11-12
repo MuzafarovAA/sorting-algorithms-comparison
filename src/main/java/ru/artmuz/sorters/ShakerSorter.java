@@ -11,6 +11,8 @@ import java.util.Arrays;
 public class ShakerSorter implements ISorter {
     @Override
     public CommonResult doSort(int[] originalArray) {
+        long startTime = System.currentTimeMillis();
+
         int[] array = Arrays.copyOf(originalArray, originalArray.length);
         int count = 0;
         int exchange = 0;
@@ -42,7 +44,10 @@ public class ShakerSorter implements ISorter {
 
         } while (left < right);
 
-        logger.info(String.format("%s. Comparison: %d, Exchanges: %d", ShakerSorter.class.getSimpleName(), count, exchange));
+        long endTime = System.currentTimeMillis();
+
+        logger.info(String.format("%s. Time: %d ms, Comparison: %d, Exchanges: %d",
+                ShakerSorter.class.getSimpleName(), (endTime - startTime), count, exchange));
         return new CommonResult(array, count, exchange);
     }
 }

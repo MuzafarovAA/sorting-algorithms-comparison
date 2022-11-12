@@ -15,13 +15,19 @@ public class QuickSorter implements ISorter {
 
     @Override
     public CommonResult doSort(int[] originalArray) {
+        long startTime = System.currentTimeMillis();
+
         int[] array = Arrays.copyOf(originalArray, originalArray.length);
 
         count = 0;
         exchange = 0;
 
         doSort(array, 0, array.length - 1);
-        logger.info(String.format("%s. Comparison: %d, Exchanges: %d", QuickSorter.class.getSimpleName(), count, exchange));
+
+        long endTime = System.currentTimeMillis();
+
+        logger.info(String.format("%s. Time: %d ms, Comparison: %d, Exchanges: %d",
+                QuickSorter.class.getSimpleName(), (endTime - startTime), count, exchange));
         return new CommonResult(array, count, exchange);
     }
 
