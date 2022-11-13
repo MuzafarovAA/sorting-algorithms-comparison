@@ -5,9 +5,9 @@ import ru.artmuz.interfaces.ISorter;
 import ru.artmuz.util.Swapper;
 
 /**
- * Сортировка пузырьком (Bubble Sort)
+ * Сортировка выбором (Selection Sort)
  */
-public class BubbleSorter implements ISorter {
+public class SelectionSorter implements ISorter {
     @Override
     public CommonResult doSort(int[] array) {
         long time = System.currentTimeMillis();
@@ -15,19 +15,18 @@ public class BubbleSorter implements ISorter {
         long count = 0;
         long exchange = 0;
 
-        boolean isSwapped;
-        do {
-            isSwapped = false;
-            for (int i = 0; i < array.length - 1; i++) {
-                count++;
-                if (array[i] > array[i + 1]) {
-                    Swapper.doSwap(array, i, i + 1);
-                    isSwapped = true;
-                    exchange++;
+        int min;
+        for (int i = 0; i < array.length - 1; i++) {
+            min = i;
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[min]) {
+                    min = j;
                 }
+                count++;
             }
-
-        } while (isSwapped);
+            Swapper.doSwap(array, i, min);
+            exchange++;
+        }
 
         time = System.currentTimeMillis() - time;
 
