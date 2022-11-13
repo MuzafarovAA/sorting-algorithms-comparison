@@ -22,7 +22,7 @@ public class QuickSorter implements ISorter {
 
         long endTime = System.currentTimeMillis();
 
-        logger.info(String.format("%s. Time: %d ms, Comparison: %d, Exchanges: %d",
+        logger.info(String.format("%s. Time elapsed: %d ms, Comparisons: %d, Exchanges: %d",
                 QuickSorter.class.getSimpleName(), (endTime - startTime), count, exchange));
         return new CommonResult(array, count, exchange);
     }
