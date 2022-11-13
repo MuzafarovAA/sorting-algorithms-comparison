@@ -2,6 +2,7 @@ package ru.artmuz.sorters;
 
 import ru.artmuz.entities.CommonResult;
 import ru.artmuz.interfaces.ISorter;
+import ru.artmuz.util.Swapper;
 
 /**
  * Быстрая сортировка (Quick Sort)
@@ -13,22 +14,19 @@ public class QuickSorter implements ISorter {
 
     @Override
     public CommonResult doSort(int[] array) {
-        long startTime = System.currentTimeMillis();
+        long time = System.currentTimeMillis();
 
         count = 0;
         exchange = 0;
 
         doSort(array, 0, array.length - 1);
 
-        long endTime = System.currentTimeMillis();
+        time = System.currentTimeMillis() - time;
 
-        logger.info(String.format("%s. Time elapsed: %d ms, Comparisons: %d, Exchanges: %d",
-                QuickSorter.class.getSimpleName(), (endTime - startTime), count, exchange));
-        return new CommonResult(array, count, exchange);
+        return new CommonResult(array, time, count, exchange);
     }
 
     private void doSort(int[] array, int from, int to) {
-        int temp;
         int left = from;
         int right = to;
         if (left != right) {
@@ -44,9 +42,7 @@ public class QuickSorter implements ISorter {
                 }
                 if (left <= right) {
                     if (left < right) {
-                        temp = array[left];
-                        array[left] = array[right];
-                        array[right] = temp;
+                        Swapper.doSwap(array, left, right);
                         exchange++;
                     }
                     left++;

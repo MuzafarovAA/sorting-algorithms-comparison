@@ -28,6 +28,8 @@ public class SorterFactory implements ISorterFactory {
         for (ISorter sorter : sorters) {
             CommonResult result = sorter.doSort(Arrays.copyOf(array, array.length));
             hashMap.put(sorter, result.getCount());
+            logger.info(String.format("%s. Time elapsed: %d ms, Comparisons: %d, Exchanges: %d",
+                    sorter.getClass().getSimpleName(), result.getTime(), result.getCount(), result.getExchange()));
         }
 
         return hashMap;

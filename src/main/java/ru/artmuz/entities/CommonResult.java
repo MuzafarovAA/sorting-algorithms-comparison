@@ -12,6 +12,11 @@ public final class CommonResult {
     private final int[] sortedArray;
 
     /**
+     * Время выполнения сортировки
+     */
+    private final long time;
+
+    /**
      * Количество операций сортировки
      */
     private final long count;
@@ -21,14 +26,19 @@ public final class CommonResult {
      */
     private final long exchange;
 
-    public CommonResult(int[] sortedArray, long count, long exchange) {
+    public CommonResult(int[] sortedArray, long time, long count, long exchange) {
         this.sortedArray = sortedArray;
+        this.time = time;
         this.count = count;
         this.exchange = exchange;
     }
 
     public int[] getSortedArray() {
         return sortedArray;
+    }
+
+    public long getTime() {
+        return time;
     }
 
     public long getCount() {

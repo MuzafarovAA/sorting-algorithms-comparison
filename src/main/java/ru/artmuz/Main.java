@@ -17,15 +17,12 @@ public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
-        logger.info("Main class started");
 
         SorterFactory sorterFactory = new SorterFactory();
-        logger.info("Sorters initialized");
 
         List<int[]> arrays = initRandomArrays();
         logger.info("Random arrays initialized");
 
-        logger.info("Entering sorting machine");
         for (int[] array : arrays) {
             logger.info(String.format("Sorting array of %d elements: %s", array.length,
                     array.length > 1000 ? String.format("viewing only first 1000 elements: %s", Arrays.toString(Arrays.copyOf(array, 1000))) : Arrays.toString(array)));
@@ -34,9 +31,7 @@ public class Main {
             Map.Entry<ISorter, Long> min = Collections.min(map.entrySet(), Map.Entry.comparingByValue());
             logger.info("The best sorter for array is: " + min.getKey().getClass().getSimpleName());
         }
-        logger.info("Exiting sorting machine");
 
-        logger.info("Main class finished");
     }
 
     private static List<int[]> initRandomArrays() {
