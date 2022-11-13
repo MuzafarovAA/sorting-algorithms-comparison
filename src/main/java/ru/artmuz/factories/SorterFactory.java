@@ -5,6 +5,7 @@ import ru.artmuz.interfaces.ISorter;
 import ru.artmuz.interfaces.ISorterFactory;
 import ru.artmuz.sorters.BubbleSorter;
 import ru.artmuz.sorters.QuickSorter;
+import ru.artmuz.sorters.SelectionSorter;
 import ru.artmuz.sorters.ShakerSorter;
 
 import java.util.*;
@@ -16,6 +17,7 @@ public class SorterFactory implements ISorterFactory {
     public SorterFactory() {
         sorters.add(new BubbleSorter());
         sorters.add(new ShakerSorter());
+        sorters.add(new SelectionSorter());
         sorters.add(new QuickSorter());
     }
 

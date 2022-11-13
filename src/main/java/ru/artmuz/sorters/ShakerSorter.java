@@ -4,7 +4,7 @@ import ru.artmuz.entities.CommonResult;
 import ru.artmuz.interfaces.ISorter;
 
 /**
- * Шейкерная сортировка
+ * Шейкерная сортировка (Shaker Sort)
  */
 public class ShakerSorter implements ISorter {
     @Override

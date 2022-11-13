@@ -4,7 +4,7 @@ import ru.artmuz.entities.CommonResult;
 import ru.artmuz.interfaces.ISorter;
 
 /**
- * Сортировка пузырьком (Bubble sort)
+ * Сортировка пузырьком (Bubble Sort)
  */
 public class BubbleSorter implements ISorter {
     @Override
